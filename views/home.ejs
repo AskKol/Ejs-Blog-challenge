@@ -1,0 +1,22 @@
+<%- include("partials/header"); %>
+<h1>Home</h1>
+<p><%= homeStartingContent %></p>
+
+<% posts.forEach(p => { %>
+<section>
+  <h3>
+    <% const url=`/posts/${p.title}` %>
+    <a href="<%= url %>"> <%= p.title %></a>
+  </h3>
+  <% if (p.content.length>20) { %>
+
+  <p>
+    <%= p.content.slice(0,100).concat(" ...") %>
+    <a href="<%=url %> ">Read more</a>
+  </p>
+  <% } else { %>
+  <p><%= p.content %></p>
+  <%}%>
+</section>
+
+<% }) %> <%- include("partials/footer"); %>
